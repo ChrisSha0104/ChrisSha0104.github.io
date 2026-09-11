@@ -1,197 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shuo Sha</title>
+  <meta name="description" content="Shuo Sha — robot learning researcher at World Labs. Research on world models, real-to-sim, and robot policy evaluation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <script>
+    // set the saved theme before first paint to avoid a flash
+    try {
+      var t = localStorage.getItem('shuosha-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+    // only arm the reveal animation when we can actually observe the viewport
+    if ('IntersectionObserver' in window &&
+        !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      document.documentElement.classList.add('js-reveal');
+    }
+  </script>
 </head>
 
 <body>
-  <div style="width:1000px;margin: 0px auto;">
-    <!-- Fixed header -->
-    <header id="header" width="400px" style="display:flex;justify-content: space-around;">
-      <a href="#profile-intro">Home</a>
-      <a href="#updates">Updates</a>
-      <a href="#research">Research</a>
-    </header>
+  <div class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__mark">Shuo Sha</a>
+      <nav class="nav__links">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#updates" class="nav__link">Updates</a>
+        <a href="#research" class="nav__link">Research</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">◑</button>
+      </nav>
+    </div>
+  </div>
 
-    <!-- Profile -->
-    <div id="profile">
-      <div id="profile-pic">
-        <img src="assets/files/prof_pic.jpg"/>
-      </div>
+  <main class="wrap" id="top">
 
-      <div id="profile-intro">
-        <div id="profile-name">Shuo Sha</div>
-        <div id="profile-email">ss7050 [at] columbia [dot] edu</div>
-        <p align="justify">
-          I work on robot learning at <a href="https://www.worldlabs.ai/">World Labs</a>. I received my Bachelor's degree in Applied Math and CS
-          from Columbia University, where I was fortunate to be mentored by
-          <a href="https://yunzhuli.github.io/">Yunzhu Li</a>,
-          <a href="https://antonilo.github.io/">Antonio Loquercio</a>,
-          and <a href="https://brianplancher.com/">Brian Plancher</a>.
-        </p>
-
-        <p align="justify">
-          My research sits at the intersection of robotics, computer vision, and machine learning,
-          with a focus on understanding the role of world models in data-driven robotics pipelines
-          to equip robots with more robust, capable, and efficient physical and perceptual
-          capabilities. I aim to use world models to scale robotics progress at the speed of
-          compute rather than real-world clock time.
-        </p>
-
-        <p align="justify">
-          If you would like to collaborate, feel free to reach out!
-        </p>
-
-        <div>
-          <a href="assets/files/cv.pdf">CV</a> /
-          <a href="https://linkedin.com/in/shuo-sha-b07527293">LinkedIn</a> /
-          <a href="https://github.com/shuosha">GitHub</a> /
-          <a href="https://x.com/shashuo0104">Twitter</a>
+    <section class="section section--hero" id="about">
+      <div class="hero" data-reveal>
+        <div class="hero__text">
+          <div class="eyebrow"><span>Robot Learning</span></div>
+          <h1 class="hero__name">Shuo Sha</h1>
+          <p class="hero__lede">Researcher at <a href="https://www.worldlabs.ai/">World Labs</a>, teaching robots to learn from world models.</p>
+          <div class="pills">
+            <a class="pill" href="assets/files/cv.pdf">CV</a>
+            <a class="pill" href="https://linkedin.com/in/shuo-sha-b07527293">LinkedIn</a>
+            <a class="pill" href="https://github.com/shuosha">GitHub</a>
+            <a class="pill" href="https://x.com/shashuo0104">Twitter</a>
+          </div>
+          <div class="bio">
+            <p>I work on robot learning at <a href="https://www.worldlabs.ai/">World Labs</a>. I received my Bachelor's degree in Applied Math and CS from Columbia University, where I was fortunate to be mentored by <a href="https://yunzhuli.github.io/">Yunzhu Li</a>, <a href="https://antonilo.github.io/">Antonio Loquercio</a>, and <a href="https://brianplancher.com/">Brian Plancher</a>.</p>
+            <p>My research sits at the intersection of robotics, computer vision, and machine learning, with a focus on understanding the role of world models in data-driven robotics pipelines to equip robots with more robust, capable, and efficient physical and perceptual capabilities. I aim to use world models to scale robotics progress at the speed of compute rather than real-world clock time.</p>
+            <p>If you would like to collaborate, feel free to reach out.</p>
+          </div>
+        </div>
+        <div class="hero__aside">
+          <div class="portrait">
+            <img src="assets/files/prof_pic.jpg" alt="Shuo Sha" />
+          </div>
+          <div class="portrait-caption">ss7050 [at] columbia [dot] edu</div>
         </div>
       </div>
-
-      <div style="clear: both;"></div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Updates -->
-    <section id="updates">
-      <h1>Updates</h1>
-      <ul>
-        <li> <b> Sep 2026 </b> <a href="https://residual-copilot.github.io">Residual Copilot</a> accepted to CoRL 2026! </li>
-        <li> <b> May 2026 </b> Graduated with my Bachelor's degree in Applied Math at Columbia. </li>
-        <li> <b> Jan 2026 </b> <a href="https://real2sim-eval.github.io/">Real2sim Eval</a> and <a href="https://a2r-lab.org/TAG-K">TAG-K</a> accepted to ICRA 2026! </li>
-        <li> <b> Sep 2025 </b> Interned as a Robotics Researcher at <a href="https://scenix.ai/">SceniX</a> during summer. </li>
-      </ul>
-      <div style="clear: both;"></div>
     </section>
 
-    <!-- Research -->
-    <div style="display:flex;flex-direction: column;" id="research">
-      <h1 style="margin-bottom:0;">Research</h1>
-      <p style="margin-bottom:30px;">(* indicates equal contribution)</p>
-        
-      <div>
-        <a href="https://residual-copilot.github.io" class="research-thumb">
-            <video width="320" height="auto" autoplay loop muted>
-                <source src="assets/files/residual_copilot.mp4" type="video/mp4">
+    <section class="section" id="updates">
+      <div class="section-head" data-reveal>
+        <h2>Updates</h2>
+      </div>
+      <ol class="updates" data-reveal>
+        <li>
+          <span class="updates__date">Sep 2026</span>
+          <span class="updates__body"><a href="https://residual-copilot.github.io">Residual Copilot</a> accepted to CoRL 2026.</span>
+        </li>
+        <li>
+          <span class="updates__date">Jul 2026</span>
+          <span class="updates__body">Joined <a href="https://www.worldlabs.ai/">World Labs</a> full time as a robot learning researcher.</span>
+        </li>
+        <li>
+          <span class="updates__date">May 2026</span>
+          <span class="updates__body">Graduated with my Bachelor's degree in Applied Math at Columbia.</span>
+        </li>
+        <li>
+          <span class="updates__date">Jan 2026</span>
+          <span class="updates__body"><a href="https://real2sim-eval.github.io/">Real2Sim Eval</a> and <a href="https://a2r-lab.org/TAG-K">TAG-K</a> accepted to ICRA 2026.</span>
+        </li>
+        <li>
+          <span class="updates__date">Sep 2025</span>
+          <span class="updates__body">Interned as a Robotics Researcher at <a href="https://scenix.ai/">SceniX</a> during summer.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-head" data-reveal>
+        <h2>Research</h2>
+        <span class="section-note">* equal contribution</span>
+      </div>
+
+      <div class="papers">
+
+        <article class="paper" data-reveal>
+          <a class="paper__media" href="https://residual-copilot.github.io">
+            <video autoplay loop muted playsinline>
+              <source src="assets/files/residual_copilot.mp4" type="video/mp4" />
             </video>
-        </a>
-        <div class="research-info">
-          <a href="https://residual-copilot.github.io" class="research-proj-title">
-              Efficient and Reliable Teleoperation through Real-to-Sim-to-Real Shared Autonomy
           </a>
-          <p>
-              <b>Shuo Sha</b>,
-              <a style="color:#000;" href="https://www.yixuanwang.me/">Yixuan Wang,</a>
-              <a style="color:#000;" href="https://binghao-huang.github.io/">Binghao Huang,</a>
-              <a style="color:#000;" href="https://antonilo.github.io/">Antonio Loquercio,</a>
-              <a style="color:#000;" href="https://yunzhuli.github.io/">Yunzhu Li</a>
-              <br>CoRL 2026,
-              <a href="https://residual-copilot.github.io">[website]</a>,
-              <a href="https://arxiv.org/abs/2603.17016">[paper]</a>,
-              <a href="https://github.com/shuosha/Residual_Copilot">[sim code]</a>,
-              <a href="https://github.com/shuosha/Residual_Copilot_Deployment">[deploy code]</a>
-          </p>
-          <br>
-          <p>
-              <b>TL;DR</b>: We present a shared autonomy framework for reliable teleoperation by learning a residual copilot that provides low-level assistance.
-          </p>
-        </div>
-      </div>
+          <div class="paper__body">
+            <a class="paper__title" href="https://residual-copilot.github.io">Efficient and Reliable Teleoperation through Real-to-Sim-to-Real Shared Autonomy</a>
+            <p class="paper__authors"><b>Shuo Sha</b>, <a href="https://www.yixuanwang.me/">Yixuan Wang</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://antonilo.github.io/">Antonio Loquercio</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
+            <div class="paper__meta">
+              <span class="venue">CoRL 2026</span>
+              <span class="sep"></span>
+              <a href="https://residual-copilot.github.io">website</a>
+              <a href="https://arxiv.org/abs/2603.17016">paper</a>
+              <a href="https://github.com/shuosha/Residual_Copilot">sim code</a>
+              <a href="https://github.com/shuosha/Residual_Copilot_Deployment">deploy code</a>
+            </div>
+            <p class="paper__tldr"><b>TL;DR</b> — We present a shared autonomy framework for reliable teleoperation by learning a residual copilot that provides low-level assistance.</p>
+          </div>
+        </article>
 
-      
-
-      <div>
-        <a href="https://real2sim-eval.github.io/" class="research-thumb">
-            <video width="320" height="auto" autoplay loop muted>
-                <source src="assets/files/real2sim_eval.mp4" type="video/mp4">
+        <article class="paper" data-reveal>
+          <a class="paper__media" href="https://real2sim-eval.github.io/">
+            <video autoplay loop muted playsinline>
+              <source src="assets/files/real2sim_eval.mp4" type="video/mp4" />
             </video>
-        </a>
-        <div class="research-info">
-          <a href="https://real2sim-eval.github.io/" class="research-proj-title">
-              Real-to-Sim Robot Policy Evaluation with Gaussian Splatting Simulation of Soft-Body Interactions
           </a>
-          <p>
-              <a style="color:#000;" href="https://kywind.github.io/">Kaifeng Zhang*,</a>
-              <b>Shuo Sha*</b>,
-              <a style="color:#000;" href="">Hanxiao Jiang,</a>
-              <a style="color:#000;" href="">Matt Loper,</a>
-              <a style="color:#000;" href="">Jay Song,</a>
-              <a style="color:#000;" href="">Zhuo Xu,</a>
-              <a style="color:#000;" href="">Xiaochen Hu,</a>
-              <a style="color:#000;" href="">Changxi Zheng,</a>
-              <a style="color:#000;" href="https://yunzhuli.github.io/">Yunzhu Li</a>
-              <br>ICRA 2026,
-              <a href="https://real2sim-eval.github.io/">[website]</a>,
-              <a href="https://arxiv.org/abs/2511.04665">[paper]</a>,
-              <a href="https://github.com/kywind/real2sim-eval">[code]</a>
-              <br>CVPR 2026 4DV Workshop <b>(Oral Presentation)</b><br>
-          </p>
-          <br>
-          <p>
-              <b>TL;DR</b>: We propose a framework for robot policy evaluation in simulation, using Gaussian Splatting for rendering and soft-body digital twin for dynamics.
-          </p>
-        </div>
-      </div>
+          <div class="paper__body">
+            <a class="paper__title" href="https://real2sim-eval.github.io/">Real-to-Sim Robot Policy Evaluation with Gaussian Splatting Simulation of Soft-Body Interactions</a>
+            <p class="paper__authors"><a href="https://kywind.github.io/">Kaifeng Zhang*</a>, <b>Shuo Sha*</b>, Hanxiao Jiang, Matt Loper, Jay Song, Zhuo Xu, Xiaochen Hu, Changxi Zheng, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
+            <div class="paper__meta">
+              <span class="venue">ICRA 2026</span>
+              <span class="links">
+                <span class="sep"></span>
+                <a href="https://real2sim-eval.github.io/">website</a>
+                <a href="https://arxiv.org/abs/2511.04665">paper</a>
+                <a href="https://github.com/kywind/real2sim-eval">code</a>
+              </span>
+              <span class="sep"></span>
+              <span class="note">CVPR 2026 4DV Workshop <b>(Oral)</b></span>
+            </div>
+            <p class="paper__tldr"><b>TL;DR</b> — We propose a framework for robot policy evaluation in simulation, using Gaussian Splatting for rendering and a soft-body digital twin for dynamics.</p>
+          </div>
+        </article>
 
-      <div>
-        <a href="https://a2r-lab.org/TAG-K/" class="research-thumb">
-            <video width="320" height="auto" autoplay loop muted>
-                <source src="assets/files/km_video.mp4" type="video/mp4">
+        <article class="paper" data-reveal>
+          <a class="paper__media" href="https://a2r-lab.org/TAG-K/">
+            <video autoplay loop muted playsinline>
+              <source src="assets/files/km_video.mp4" type="video/mp4" />
             </video>
-        </a>
-        <div class="research-info">
-          <a href="https://a2r-lab.org/TAG-K/" class="research-proj-title">
-              TAG-K: Tail-Averaged Greedy Kaczmarz for Computationally Efficient and Performant Online Inertial Parameter Estimation
           </a>
-          <p>
-              <b>Shuo Sha</b>,
-              <a style="color:#000;" href="">Anupam Bhakta*,</a>
-              <a style="color:#000;" href="">Zhenyuan Jiang*,</a>
-              <a style="color:#000;" href="">Kevin Qiu*,</a>
-              <a style="color:#000;" href="">Ishaan Mahajan,</a>
-              <a style="color:#000;" href="">Gabriel Bravo,</a>
-              <a style="color:#000;" href="">Brian Plancher</a>
-              <br>ICRA 2026,
-              <a href="https://a2r-lab.org/TAG-K/">[website]</a>,
-              <a href="https://arxiv.org/abs/2510.04839">[paper]</a>,
-              <a href="https://github.com/A2R-Lab/TAG-K.git">[code]</a>
-          </p>
-          <br>
-          <p>
-              <b>TL;DR</b>: We introduce TAG-K, a lightweight Kaczmarz variant combining greedy row selection and tail averaging for fast online inertial parameter estimation.
-          </p>
-        </div>
-      </div>
+          <div class="paper__body">
+            <a class="paper__title" href="https://a2r-lab.org/TAG-K/">TAG-K: Tail-Averaged Greedy Kaczmarz for Computationally Efficient and Performant Online Inertial Parameter Estimation</a>
+            <p class="paper__authors"><b>Shuo Sha</b>, Anupam Bhakta*, Zhenyuan Jiang*, Kevin Qiu*, Ishaan Mahajan, Gabriel Bravo, <a href="https://brianplancher.com/">Brian Plancher</a></p>
+            <div class="paper__meta">
+              <span class="venue">ICRA 2026</span>
+              <span class="sep"></span>
+              <a href="https://a2r-lab.org/TAG-K/">website</a>
+              <a href="https://arxiv.org/abs/2510.04839">paper</a>
+              <a href="https://github.com/A2R-Lab/TAG-K.git">code</a>
+            </div>
+            <p class="paper__tldr"><b>TL;DR</b> — We introduce TAG-K, a lightweight Kaczmarz variant combining greedy row selection and tail averaging for fast online inertial parameter estimation.</p>
+          </div>
+        </article>
 
-      <div>
-        <a href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584" class="research-thumb">
-            <img src="assets/files/pde_caption.png">
-        </a>
-        <div class="research-info">
-          <a href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584" class="research-proj-title">
-              Analysis of 2D Maxwell's Equations in a Time-Harmonic Regime
+        <article class="paper" data-reveal>
+          <a class="paper__media" href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584">
+            <img src="assets/files/pde_caption.png" alt="2D Maxwell's equations figure" />
           </a>
-          <p>
-              <b>Shuo Sha</b>
-              <br>Journal of Mathematics Research 2023,
-              <a href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584">[paper]</a>
-          </p>
-          <br>
-          <p>
-              <b>TL;DR</b>: We present a well-posed variational formulation and finite element approximation for time-harmonic 2D Maxwell's equations.
-          </p>
-        </div>
-      </div>
-    </div>
+          <div class="paper__body">
+            <a class="paper__title" href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584">Analysis of 2D Maxwell's Equations in a Time-Harmonic Regime</a>
+            <p class="paper__authors"><b>Shuo Sha</b></p>
+            <div class="paper__meta">
+              <span class="venue">Journal of Mathematics Research 2023</span>
+              <span class="sep"></span>
+              <a href="https://ccsenet.org/journal/index.php/jmr/article/view/0/48584">paper</a>
+            </div>
+            <p class="paper__tldr"><b>TL;DR</b> — We present a well-posed variational formulation and finite element approximation for time-harmonic 2D Maxwell's equations.</p>
+          </div>
+        </article>
 
-  </div>
+      </div>
+    </section>
+
+    <footer class="footer" data-reveal>
+      <div class="footer__main">
+        <h2>Get in touch</h2>
+        <p>Always happy to talk about world models, real-to-sim, and robot learning. Reach out about collaborations.</p>
+        <a class="footer__email" href="mailto:ss7050@columbia.edu">ss7050 [at] columbia [dot] edu</a>
+      </div>
+      <div class="footer__aside">
+        <div class="row">
+          <a href="assets/files/cv.pdf">CV</a>
+          <a href="https://github.com/shuosha">GitHub</a>
+          <a href="https://linkedin.com/in/shuo-sha-b07527293">LinkedIn</a>
+          <a href="https://x.com/shashuo0104">Twitter</a>
+        </div>
+        <span>New York, NY</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+
+      function glyph() {
+        btn.textContent = root.getAttribute('data-theme') === 'dark' ? '◐' : '◑';
+      }
+      glyph();
+
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('shuosha-theme', next); } catch (e) {}
+        glyph();
+      });
+
+      // scroll reveal
+      var nodes = document.querySelectorAll('[data-reveal]');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function revealAll() {
+        nodes.forEach(function (n) { n.classList.add('is-visible'); });
+      }
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        revealAll();
+      } else {
+        var fired = false;
+        var obs = new IntersectionObserver(function (entries) {
+          fired = true;
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+        nodes.forEach(function (n) { obs.observe(n); });
+        // safety net: if the observer never reports, show everything
+        setTimeout(function () { if (!fired) revealAll(); }, 1500);
+      }
+
+      // keep the looping teasers playing
+      document.querySelectorAll('video').forEach(function (v) {
+        v.muted = true;
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      });
+    })();
+  </script>
 </body>
 
 </html>
